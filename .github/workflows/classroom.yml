@@ -131,4 +131,4 @@ jobs:
         CHECK-MULTI-FILE-COMMIT_RESULTS: "${{steps.check-multi-file-commit.outputs.result}}"
         PYTHON-TEST_RESULTS: "${{steps.python-test.outputs.result}}"
       with:
-        runners: check-file, check-markdown-table, check-sine-wave-svg. check-placeholder-removed, check-multi-file-commit, python-test
+        runners: check-file, check-markdown-table, check-sine-wave-svg, check-placeholder-removed, check-multi-file-commit, python-test
