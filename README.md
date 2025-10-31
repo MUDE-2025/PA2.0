@@ -35,4 +35,6 @@ This PA includes some autograding checks, which check that you've did some steps
 - replaced the markdown line in exercise 12
 - You've created a new python script called `my_first_script.py` in exercise 15 which returns correct results
 
+As this assignment is not mandatory, there is no penalty for not passing the autograder.
+
 > By Tom van Woudenberg and Robert Lanzafame, Delft University of Technology. CC BY 4.0, more info [on the Credits page of Workbook](https://mude.citg.tudelft.nl/workbook-2025/credits.html).
