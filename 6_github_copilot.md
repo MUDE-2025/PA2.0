@@ -1,4 +1,4 @@
-# GitHub account and Student Developer Pack
+# GitHub account
 
 We'll extensively use GitHub in this course to teach you how to use git! Therefore, you'll need a GitHub account.
 

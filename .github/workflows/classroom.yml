@@ -1,0 +1,135 @@
+name: Autograding Tests
+on:
+  push:
+    branches:
+      - assignment
+      - solution
+  repository_dispatch:
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.pull_request.head.sha }} #https://stackoverflow.com/questions/62334460/git-history-in-a-github-action
+        fetch-depth: 0
+    - name: Check for file_to_upload.md
+      id: check-file
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Check for file_to_upload.md
+        setup-command: 
+        command: if [ -f "file_to_upload.md" ]; then echo "file_to_upload.md exists"; else echo "file_to_upload.md not found"; exit 1; fi
+        timeout: 10
+        max-score: 10
+    - name: Check for markdown table in 8_markdown.md
+      id: check-markdown-table
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Check for markdown table in 8_markdown.md
+        setup-command: ""
+        command: |
+          if grep -Eq '^\s*\|.*\|\s*$' 8_markdown.md && grep -Eq '^\s*\|[ -:|]+\|\s*$' 8_markdown.md; then
+            echo "Markdown table found in 8_markdown.md"
+          else
+            echo "Markdown table not found in 8_markdown.md"
+            exit 1
+          fi
+        timeout: 10
+        max-score: 10
+    - name: Check for sine_wave.svg in markdown cell
+      id: check-sine-wave-svg
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Check for sine_wave.svg in markdown cell
+        setup-command: pip install nbformat
+        command: |
+          python -c "
+          import nbformat
+          import re
+          import os
+
+          def normalize_path(path):
+            return path.replace('\\\\\\\\', '/').replace('\\\\', '/')
+            
+          with open('9_markdown_ipynb.ipynb', 'r', encoding='utf-8') as f:
+            nb = nbformat.read(f, as_version=4)
+          found = False
+          # Accept variations: ./auxiliary_files/sine_wave.svg, auxiliary_files/sine_wave.svg, .\auxiliary_files\sine_wave.svg, etc.
+          pattern = re.compile(r'!\[.*?\]\((?:\./|\\\\\\\\|\\\\)?auxiliary_files[\\/]+sine_wave\.svg\)')
+          for cell in nb.cells:
+            if cell.cell_type == 'markdown':
+              src = normalize_path(cell.source)
+              if pattern.search(src):
+                found = True
+                break
+          if found:
+            print('sine_wave.svg found in markdown cell')
+          else:
+            print('sine_wave.svg not found in markdown cell')
+            exit(1)
+          "
+        timeout: 10
+        max-score: 10
+    - name: Check placeholder line removed
+      id: check-placeholder-removed
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Check placeholder line removed
+        setup-command: ""
+        command: |
+          if grep -q '% REPLACE THIS LINE WITH YOUR MARKDOWN CONTENT' 3_commit_online.md; then
+            echo '❌ Error: The placeholder line "% REPLACE THIS LINE WITH YOUR MARKDOWN CONTENT" was not removed from 3_commit_online.md. Please replace this line with your own markdown content.'
+            exit 1
+          else
+            echo '✅ Success: The placeholder line has been properly removed from 3_commit_online.md'
+          fi
+        timeout: 10
+        max-score: 10 
+    - name: Check multi-file commit
+      id: check-multi-file-commit
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Check multi-file commit
+        setup-command: ""
+        command: |
+          # Check all non-bot commits for any multi-file commit
+          if git log --pretty=format:'%H %an' | grep -v 'github-classroom\[bot\]' | cut -d' ' -f1 | while read commit; do
+            file_count=$(git show --name-only --pretty=format: "$commit" | grep -c '^')
+            if [ "$file_count" -gt 1 ]; then
+              echo "found"
+              exit 0
+            fi
+          done | grep -q found; then
+            echo '✅ Success: Multi-file commit detected in student work'
+          else
+            echo '❌ Error: No multi-file commits detected from student work. Please make a commit that includes both the markdown file and your figure.'
+            exit 1
+          fi
+        timeout: 15
+        max-score: 10
+    - name: Python test
+      id: python-test
+      uses: classroom-resources/autograding-python-grader@v1
+      with:
+        timeout: 10
+        max-score: 10
+        setup-command: pip install numpy matplotlib pyyaml pytest
+    - name: Autograding Reporter
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        CHECK-FILE_RESULTS: "${{steps.check-file.outputs.result}}"
+        CHECK-MARKDOWN-TABLE_RESULTS: "${{steps.check-markdown-table.outputs.result}}"
+        CHECK-SINE-WAVE-SVG_RESULTS: "${{steps.check-sine-wave-svg.outputs.result}}"
+        CHECK-PLACEHOLDER-REMOVED_RESULTS: "${{steps.check-placeholder-removed.outputs.result}}"
+        CHECK-MULTI-FILE-COMMIT_RESULTS: "${{steps.check-multi-file-commit.outputs.result}}"
+        PYTHON-TEST_RESULTS: "${{steps.python-test.outputs.result}}"
+      with:
+        runners: check-file, check-markdown-table, check-sine-wave-svg. check-placeholder-removed, check-multi-file-commit, python-test
