@@ -2,7 +2,7 @@
 
 This programming assignment is meant for students joining MUDE in Q2 who'd like to make/participate in the workshop and group assignments. It contains a selection of tasks from programming assignments of Q1 that are essential to be able to follow the workshop and group assignment. It is not mandatory to do this assignment, but highly recommended to ensure you have the required setup and skills.
 
-You can preview this assignment on https://mude.citg.tudelft.nl/workbook-2025/assignments/PA2.0/README.html. After the deadline, this link will include solutions. The preview of the assignment version is shared here: https://mude.citg.tudelft.nl/workbook-2025/no_solutions/assignments/PA2.0/README.html. You can obtain your personal repository for submission on: https://classroom.github.com/a/... (task 6 required to access this link).
+You can preview this assignment on https://mude.citg.tudelft.nl/workbook-2025/assignments/PA2.0/README.html. After the deadline, this link will include solutions. The preview of the assignment version is shared here: https://mude.citg.tudelft.nl/workbook-2025/no_solutions/assignments/PA2.0/README.html. You can obtain your personal repository for submission on: https://classroom.github.com/a/yhhJUxJU (task 6 required to access this link). If you receive an error in that process, please use this link: https://classroom.github.com/a/ZHB4oIyP and create a team using your student ID. Instructions how to submit this assignment are part of [the first task of this repository](./7_upload_github.md).
 
 Before you can start this assignment, read the theory pages in the book:
 - [Getting started!](https://mude.citg.tudelft.nl/book/2025/programming/week_1_1.html)
@@ -34,5 +34,7 @@ This PA includes some autograding checks, which check that you've did some steps
 - edited multiple files in a single commit in exercise 11
 - replaced the markdown line in exercise 12
 - You've created a new python script called `my_first_script.py` in exercise 15 which returns correct results
+
+As this assignment is not mandatory, there is no penalty for not passing the autograder.
 
 > By Tom van Woudenberg and Robert Lanzafame, Delft University of Technology. CC BY 4.0, more info [on the Credits page of Workbook](https://mude.citg.tudelft.nl/workbook-2025/credits.html).
