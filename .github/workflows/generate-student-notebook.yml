@@ -16,8 +16,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.FG_MUDE_2025_token }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
