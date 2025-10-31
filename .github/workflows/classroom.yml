@@ -122,7 +122,6 @@ jobs:
         max-score: 10
         setup-command: pip install numpy matplotlib pyyaml pytest
     - name: Autograding Reporter
-    - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         CHECK-FILE_RESULTS: "${{steps.check-file.outputs.result}}"
