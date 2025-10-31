@@ -7,8 +7,6 @@ Here is the example to replicate:
 
 ![Markdown example](https://files.mude.citg.tudelft.nl/markdown_example.png)
 
-% WRITE YOUR MARKDOWN HERE
-
 ### My First Markdown Document
 
 This is my introduction to *markdown formatting*. I'm learning how to use various formatting options so that I can style my reports.
@@ -53,15 +51,11 @@ Now try to replicate the following markdown table (you can copy-paste the star e
 
 ![Markdown example](https://files.mude.citg.tudelft.nl/markdown_table.png)
 
-% WRITE YOUR MARKDOWN HERE
-
-
 | Language | Difficulty | Use Case | Popularity |
 | :-: | :- | :- | :-: |
 | Python | Beginner | Data Science, Web Dev | ⭐⭐⭐⭐⭐ |
 | JavaScript | Beginner | Web Development | ⭐⭐⭐⭐⭐ |
 | C++ | Advanced | System Programming | ⭐⭐⭐ |
 | R | Intermediate | Statistics, Data Analysis | ⭐⭐⭐ |
-
 
 > By Tom van Woudenberg, Delft University of Technology. CC BY 4.0, more info [on the Credits page of Workbook](https://mude.citg.tudelft.nl/workbook-2025/credits.html).
