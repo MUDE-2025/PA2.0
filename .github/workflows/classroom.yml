@@ -84,11 +84,11 @@ jobs:
         test-name: Check placeholder line removed
         setup-command: ""
         command: |
-          if grep -q '% REPLACE THIS LINE WITH YOUR MARKDOWN CONTENT' 3_commit_online.md; then
-            echo '❌ Error: The placeholder line "% REPLACE THIS LINE WITH YOUR MARKDOWN CONTENT" was not removed from 3_commit_online.md. Please replace this line with your own markdown content.'
+          if grep -q '% REPLACE THIS LINE WITH YOUR MARKDOWN CONTENT' 12_commit_online.md; then
+            echo '❌ Error: The placeholder line "% REPLACE THIS LINE WITH YOUR MARKDOWN CONTENT" was not removed from 12_commit_online.md. Please replace this line with your own markdown content.'
             exit 1
           else
-            echo '✅ Success: The placeholder line has been properly removed from 3_commit_online.md'
+            echo '✅ Success: The placeholder line has been properly removed from 12_commit_online.md'
           fi
         timeout: 10
         max-score: 10 
