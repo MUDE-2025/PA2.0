@@ -5,7 +5,7 @@ Try to replicate the piece of text in the figure here using markdown. If you hav
 
 Here is the example to replicate:
 
-![Markdown example](https://files.mude.citg.tudelft.nl/markdown_example.png)
+![Markdown example](https://github.com/TUDelft-MUDE/source-files/raw/main/file/markdown_example.png)
 
 ### My First Markdown Document
 
@@ -49,7 +49,7 @@ Test out the rendered markdown preview in VS code (CTRL+SHIFT+V). Is it identica
 
 Now try to replicate the following markdown table (you can copy-paste the star emoji ⭐):
 
-![Markdown example](https://files.mude.citg.tudelft.nl/markdown_table.png)
+![Markdown example](https://github.com/TUDelft-MUDE/source-files/raw/main/file/markdown_table.png)
 
 | Language | Difficulty | Use Case | Popularity |
 | :-: | :- | :- | :-: |
