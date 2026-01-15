@@ -12,7 +12,7 @@ Open the TU Delft stand-alone installer from this link: https://software.tudelft
 
 And follow the steps with recommended options. For windows-users: make sure you select 'Add conda to my PATH environment variable' (this will allow you to use conda from any terminal). If you don't have that option, continue with step *Task 2.2.additional* after this step.
 
-![Add conda to PATH](https://files.mude.citg.tudelft.nl/settings_conda.png)
+![Add conda to PATH](https://github.com/TUDelft-MUDE/source-files/raw/main/file/settings_conda.png)
 
 A few tips:
 
@@ -68,25 +68,25 @@ C:\ProgramData\tudelft-conda\scripts\conda.exe
 2. Navigate to the _Edit environment variables for your account_ settings.
 The easiest way to find the appropriate setting window is by typing the first letters of "environment" in the Windows toolbar. The first three letters are usually enough to cause several relevant options to appear; select _Edit environment variables for your account_ and see the figure below for an illustration:
 
-![Search for environment variable settings](https://files.mude.citg.tudelft.nl/environment_var_search.png)
+![Search for environment variable settings](https://github.com/TUDelft-MUDE/source-files/raw/main/file/environment_var_search.png)
 
 3. Set the variable.
 As a general rule you should only adjust the `PATH` variable for the _user_, **not** the _system._ Failing to do this is a common mistake and leads to frustration when installing applications like Anaconda and Miniconda.
 To set the right variable, pay particular attention to the descriptions provided in the environment variable window, as it is easy to miss; the right location is illustrated clearly in the following figure:
 
-![Unless specified otherwise, don't set an environment variable for the _system_, only your account](https://files.mude.citg.tudelft.nl/environment_var_miniconda_not_system.png)
+![Unless specified otherwise, don't set an environment variable for the _system_, only your account](https://github.com/TUDelft-MUDE/source-files/raw/main/file/environment_var_miniconda_not_system.png)
 
 Once you have identified the proper (user) window, look for the `PATH` variable, select it, then click the "Edit..." button. If the variable value is empty, you will probably see a window similar to that in the following figure; enter (paste) the path of the folder (directory) you wish to add to the path in the field "Variable value" then click "OK." Note that you can browse for the file and folder of interest via the settings window if you did not already copy the path via the File Explorer or a CLI. 
 
-![How to add a folder (directory) location to the `PATH` variable. The example here is for Miniconda](https://files.mude.citg.tudelft.nl/environment_var_miniconda.png)
+![How to add a folder (directory) location to the `PATH` variable. The example here is for Miniconda](https://github.com/TUDelft-MUDE/source-files/raw/main/file/environment_var_miniconda.png)
 
 If there are already values set for the `PATH` variable then the "Edit..." button will probably show a window like that in the following figure. In this case, you can add a new path via the "New" button; paste the path in an open row of the list. Note that you can browse for the file and folder of interest via the settings window if you did not already copy the path via the File Explorer or a CLI. 
 
-![Example showing folders (directories) that have already been added to the `PATH` variable. Note the "New" and "Edit" buttons.](https://files.mude.citg.tudelft.nl/environment_var_PATH_examples.png)
+![Example showing folders (directories) that have already been added to the `PATH` variable. Note the "New" and "Edit" buttons.](https://github.com/TUDelft-MUDE/source-files/raw/main/file/environment_var_PATH_examples.png)
 
 The following figure illustrates exactly where you should paste your desired folder (directory) path after clicking the "New" button:
 
-![How to add a folder (directory) location to the `PATH` variable using the "New" button.](https://files.mude.citg.tudelft.nl/environment_var_PATH_new.png)
+![How to add a folder (directory) location to the `PATH` variable using the "New" button.](https://github.com/TUDelft-MUDE/source-files/raw/main/file/environment_var_PATH_new.png)
 
 4. Restart your computer
 
